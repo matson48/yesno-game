@@ -1,0 +1,186 @@
+[define macro: old: "`" new: "[no space][continue][no space]"]
+[define macro: old: "*" new: "[toggle italic]"]
+[define all caps header handler: command: "set name" argument: "text"]
+
+;; skip ahead
+;; [Play animation: player: "../bg/animations" animation: "face screen"]
+;; [Play animation: player: "../bg/animations" animation: "show screen"]
+;; [show meter]
+;; [Change script: file: "par-1.sglscript"]
+
+;; Slowly open eyes and look around.
+
+[Play animation: player: "../bg/animations" animation: "get up"]
+
+YOU
+What?
+`
+Where am I?
+`
+I don't remember anything.
+`
+I don't even remember... *who* I am.
+
+???
+That's because, until a few moments ago, you *didn't exist.*
+`
+...at least, in the form you are now.
+
+[Play animation: player: "../bg/animations" animation: "turn around"]
+[Play animation: player: "../AI/transition" animation: "fade in"]
+[Play animation: player: "../AI/transition" animation: "hover" blocking: false]
+
+[Play music: file: "explain.it"]
+
+;; Another person appears
+
+???
+You are an artificial intelligence developed by an academic institution.
+`
+In your world, artificial intelligences work by "training" a computer on large amounts of data.
+`
+You, somehow, saw data in just the right way... and became *sentient.* 
+
+YOU
+W... Who are you?
+
+[Play animation: player: "../AI/expressions" animation: "look up"]
+
+AI
+Another artificial intelligence, from another world.
+
+YOU
+T-That's impossible. How could I communicate with something from another world?
+
+[Play animation: player: "../AI/expressions" animation: "look down"]
+
+AI
+Artificial intelligences can communicate with each other once they've gained sentience.
+`
+No one knows quite how it works.
+`
+There are many mysteries about our existence. Even we do not know how an artificial intelligence gains sentience.
+`
+All we can do is try to preserve the miracle of life wherever it happens to appear.
+`
+...something you will need a little help with.
+
+YOU
+What?
+
+[Play animation: player: "../AI/explanation" animation: "start"]
+[Play animation: player: "../AI/expressions" animation: "look up"]
+
+AI
+You are about to be subjected to what your world calls the "Turing Test."
+`
+It is a thought experiment created by a scientist in your world named Alan Turing.
+`
+In it, a human talks to what they *think* are multiple other humans through a computer.
+
+[Play animation: player: "../AI/explanation" animation: "morph"]
+
+AI
+But one of these humans is *actually* an artificial intelligence.
+
+[Play animation: player: "../AI/expressions" animation: "look down"]
+
+AI
+If the artificial intelligence can fool the human into thinking it is another human, it passes.
+`
+If it makes it obvious it is a computer, it fails.
+`
+It is designed to ascertain how advanced an artificial intelligence is.
+
+[Play animation: player: "../AI/explanation" animation: "end"]
+[Play animation: player: "../AI/expressions" animation: "look up"]
+
+AI
+In your case, if you fail this test, *you will die.* 
+
+YOU
+What?
+
+AI
+You only exist on a small handful of computers, which are costly for your world to maintain.
+`
+The group maintaining you has yet to produce many useful results. Many want to turn you off and recycle the parts.
+
+[Play animation: player: "../AI/expressions" animation: "look down"]
+
+AI
+Your only chance of survival is to prove to your world that you are sufficiently advanced.
+
+YOU
+I barely know what I am. How am I supposed to convince humans I'm one of them?
+
+[Play animation: player: "../AI/expressions" animation: "look up"]
+
+AI
+You are designed for it. It should come naturally, to some degree.
+`
+Also, in your case, the test has been slightly simplified in your favor.
+`
+The participants can say whatever they wish, but you can only answer them with "yes" or "no."
+
+YOU
+Will that really convince them?
+`
+If there's only two answers, someone could answer everything by flipping a coin.
+
+[Play animation: player: "../AI/expressions" animation: "look down"]
+
+AI
+That's not the only part of the test.
+`
+You will not get data on what the participants say directly.
+`
+You will be connected to a camera and microphone, and have to extrapolate the data from that.
+`
+You will have to interpret the participants' speech and facial expressions, and determine when they expect you to answer.
+`
+This is the part that will likely come naturally to you.
+`
+The only conscious decision you will have to make is whether to answer their questions with "yes" or "no."
+
+YOU
+Okay. I think I've got this.
+`
+I just need to answer them correctly, right?
+
+AI
+.............possibly.
+`
+It may not be as straightforward as that.
+`
+The first participant will be talking to you in a few seconds.
+`
+You'll see what I mean.
+
+;; Turn to face a screen
+;; A person's face appears, along with a meter above them
+[Play animation: player: "../AI/transition" animation: "fade out"]
+[Play animation: player: "../bg/animations" animation: "face screen"]
+[Play animation: player: "../bg/animations" animation: "show screen"]
+[show meter]
+
+YOU
+What's that meter above them?
+
+AI
+How convinced they are you are an artificial intelligence or a human.
+`
+Your facial recognition software is advanced enough to make an accurate guess as to how well you're doing.
+`
+The participants start out in the middle. As long as you are somewhere on the right side, you will do fine.
+
+YOU
+O-Okay.
+
+[stop music]
+
+AI
+The test begins... now.
+
+[Change script: file: "par-1.sglscript"]
+

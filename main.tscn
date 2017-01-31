@@ -1,0 +1,2262 @@
+[gd_scene load_steps=72 format=1]
+
+[ext_resource path="res://addons/SGLscript/SGLscriptInterpreter.gd" type="Script" id=1]
+[ext_resource path="res://addons/SGLscript/icon.png" type="Texture" id=2]
+[ext_resource path="res://gdscript/flow_control.gd" type="Script" id=3]
+[ext_resource path="res://gdscript/3d_setup.gd" type="Script" id=4]
+[ext_resource path="res://bg/grid.png" type="Texture" id=5]
+[ext_resource path="res://bg/grid-double.png" type="Texture" id=6]
+[ext_resource path="res://bg/sky.png" type="Texture" id=7]
+[ext_resource path="res://inside_screen.tscn" type="PackedScene" id=8]
+[ext_resource path="res://promo/mockup-bg.png" type="Texture" id=9]
+[ext_resource path="res://promo/mockup-screen.png" type="Texture" id=10]
+[ext_resource path="res://gdscript/message_window.gd" type="Script" id=11]
+[ext_resource path="res://gui/mwin.png" type="Texture" id=12]
+[ext_resource path="res://gui/OpenSans-SemiboldItalic.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://gui/OpenSans-Semibold.ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://gui/nametag.png" type="Texture" id=15]
+[ext_resource path="res://gui/OpenSans-Bold.ttf" type="DynamicFontData" id=16]
+[ext_resource path="res://gui/ctc.png" type="Texture" id=17]
+[ext_resource path="res://gui/meter.png" type="Texture" id=18]
+[ext_resource path="res://gdscript/meter.gd" type="Script" id=19]
+[ext_resource path="res://gui/meter-inside.png" type="Texture" id=20]
+[ext_resource path="res://gdscript/choice_window.gd" type="Script" id=21]
+[ext_resource path="res://gui/yes.png" type="Texture" id=22]
+[ext_resource path="res://gui/yes-active.png" type="Texture" id=23]
+[ext_resource path="res://gui/no.png" type="Texture" id=24]
+[ext_resource path="res://gui/no-active.png" type="Texture" id=25]
+[ext_resource path="res://sfx/advance.wav" type="Sample" id=26]
+[ext_resource path="res://sfx/ai-enter.wav" type="Sample" id=27]
+[ext_resource path="res://sfx/ai-leave.wav" type="Sample" id=28]
+[ext_resource path="res://sfx/choose.wav" type="Sample" id=29]
+[ext_resource path="res://sfx/choose-b.wav" type="Sample" id=30]
+[ext_resource path="res://sfx/choose-c.wav" type="Sample" id=31]
+[ext_resource path="res://sfx/meter.wav" type="Sample" id=32]
+[ext_resource path="res://sfx/screen.wav" type="Sample" id=33]
+[ext_resource path="res://sfx/slide.wav" type="Sample" id=34]
+[ext_resource path="res://gdscript/bgm_commands.gd" type="Script" id=35]
+[ext_resource path="res://promo/mockup-2.jpg" type="Texture" id=36]
+[ext_resource path="res://gdscript/debug_window.gd" type="Script" id=37]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "default"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("camera:transform/translation")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":0, "values":[ Vector3( -5.99107, 1.2647, 0 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("camera:transform/rotation")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":0, "values":[ Vector3( 0, -90, 0 ) ] }
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "face screen"
+length = 3.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("camera:transform/translation")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 3 ), "transitions":FloatArray( -4, 1 ), "update":0, "values":[ Vector3( -5.57234, 1.22613, -3.27352 ), Vector3( -5, 1, 0 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("camera:transform/rotation")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 3 ), "transitions":FloatArray( -4, 1 ), "update":0, "values":[ Vector3( -10, -210.564, 5 ), Vector3( 90, -70, 90 ) ] }
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "get up"
+length = 7.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("camera:transform/translation")
+tracks/0/interp = 2
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 2, 4.1 ), "transitions":FloatArray( 0.25, -4, -4 ), "update":0, "values":[ Vector3( -5.99107, 0.842392, -3.27352 ), Vector3( -5.99107, 1.36838, -3.27352 ), Vector3( -5.57234, 1.22613, -3.27352 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("camera:transform/rotation")
+tracks/1/interp = 2
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 2, 4.1, 5.5, 7 ), "transitions":FloatArray( 0.25, -4, -4, -4, -4 ), "update":0, "values":[ Vector3( -90, -33.0933, -90 ), Vector3( -90, -71.2597, -90 ), Vector3( -68.9429, -65.5822, -67.76 ), Vector3( -58.9429, -95.5822, -70.76 ), Vector3( 4.93906, -14.5639, -10.6927 ) ] }
+
+[sub_resource type="Animation" id=33]
+
+resource/name = "hide screen"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("screen:visibility/visible")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "update":1, "values":[ true, false ] }
+tracks/1/type = "method"
+tracks/1/path = NodePath("../sfx")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ { "args":[ "screen" ], "method":"play" } ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("screen:transform/scale")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( -4, 0.25 ), "update":0, "values":[ Vector3( 1, 1, 1 ), Vector3( 1, 0, 1 ) ] }
+
+[sub_resource type="Animation" id=34]
+
+resource/name = "leave screen"
+length = 3.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("camera:transform/translation")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 3 ), "transitions":FloatArray( -4, -4 ), "update":0, "values":[ Vector3( -5, 1, 0 ), Vector3( -5.57234, 1.22613, -3.27352 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("camera:transform/rotation")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 3 ), "transitions":FloatArray( -4, -4 ), "update":0, "values":[ Vector3( 90, -70, 90 ), Vector3( -10, -210.564, 5 ) ] }
+
+[sub_resource type="Animation" id=29]
+
+resource/name = "show screen"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("screen:visibility/visible")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ true ] }
+tracks/1/type = "method"
+tracks/1/path = NodePath("../sfx")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ { "args":[ "screen" ], "method":"play" } ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("screen:transform/scale")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 0.25, 1 ), "update":0, "values":[ Vector3( 1, 0, 1 ), Vector3( 1, 1, 1 ) ] }
+
+[sub_resource type="Animation" id=4]
+
+resource/name = "turn around"
+length = 2.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("camera:transform/translation")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":0, "values":[ Vector3( -5.57234, 1.22613, -3.27352 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("camera:transform/rotation")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 2 ), "transitions":FloatArray( -4, 1 ), "update":0, "values":[ Vector3( 4.93906, -14.5639, -10.6927 ), Vector3( -10, -210.564, 5 ) ] }
+
+[sub_resource type="FixedMaterial" id=5]
+
+flags/visible = true
+flags/double_sided = false
+flags/invert_faces = false
+flags/unshaded = true
+flags/on_top = false
+flags/lightmap_on_uv2 = true
+flags/colarray_is_srgb = true
+params/blend_mode = 0
+params/depth_draw = 1
+params/line_width = 5.14277e-43
+fixed_flags/use_alpha = false
+fixed_flags/use_color_array = false
+fixed_flags/use_point_size = false
+fixed_flags/discard_alpha = false
+fixed_flags/use_xy_normalmap = false
+params/diffuse = Color( 1, 1, 1, 1 )
+params/specular = Color( 0, 0, 0, 1 )
+params/emission = Color( 0, 0, 0, 1 )
+params/specular_exp = 40
+params/detail_mix = 1.0
+params/normal_depth = 1
+params/shader = 0
+params/shader_param = 0.5
+params/glow = 0
+params/point_size = 1.0
+uv_xform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+textures/diffuse = ExtResource( 5 )
+textures/diffuse_tc = 0
+textures/detail_tc = 0
+textures/specular_tc = 0
+textures/emission_tc = 0
+textures/specular_exp_tc = 0
+textures/glow_tc = 0
+textures/normal_tc = 0
+textures/shade_param_tc = 0
+
+[sub_resource type="FixedMaterial" id=6]
+
+flags/visible = true
+flags/double_sided = false
+flags/invert_faces = false
+flags/unshaded = true
+flags/on_top = false
+flags/lightmap_on_uv2 = true
+flags/colarray_is_srgb = true
+params/blend_mode = 0
+params/depth_draw = 1
+params/line_width = 5.14277e-43
+fixed_flags/use_alpha = false
+fixed_flags/use_color_array = false
+fixed_flags/use_point_size = false
+fixed_flags/discard_alpha = false
+fixed_flags/use_xy_normalmap = false
+params/diffuse = Color( 1, 1, 1, 1 )
+params/specular = Color( 0, 0, 0, 1 )
+params/emission = Color( 0, 0, 0, 1 )
+params/specular_exp = 40
+params/detail_mix = 1.0
+params/normal_depth = 1
+params/shader = 0
+params/shader_param = 0.5
+params/glow = 0
+params/point_size = 1.0
+uv_xform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+textures/diffuse = ExtResource( 6 )
+textures/diffuse_tc = 1
+textures/detail_tc = 0
+textures/specular_tc = 0
+textures/emission_tc = 0
+textures/specular_exp_tc = 0
+textures/glow_tc = 0
+textures/normal_tc = 0
+textures/shade_param_tc = 0
+
+[sub_resource type="FixedMaterial" id=7]
+
+flags/visible = true
+flags/double_sided = false
+flags/invert_faces = false
+flags/unshaded = true
+flags/on_top = false
+flags/lightmap_on_uv2 = true
+flags/colarray_is_srgb = true
+params/blend_mode = 0
+params/depth_draw = 1
+params/line_width = 5.14277e-43
+fixed_flags/use_alpha = false
+fixed_flags/use_color_array = false
+fixed_flags/use_point_size = false
+fixed_flags/discard_alpha = false
+fixed_flags/use_xy_normalmap = false
+params/diffuse = Color( 1, 1, 1, 1 )
+params/specular = Color( 0, 0, 0, 1 )
+params/emission = Color( 0, 0, 0, 1 )
+params/specular_exp = 40
+params/detail_mix = 1.0
+params/normal_depth = 1
+params/shader = 0
+params/shader_param = 0.5
+params/glow = 0
+params/point_size = 1.0
+uv_xform = Transform( 1, 0, 0, 0.5, 1, 0, 0, 0, 1, 0, 0, 0 )
+textures/diffuse = ExtResource( 7 )
+textures/diffuse_tc = 0
+textures/detail_tc = 0
+textures/specular_tc = 0
+textures/emission_tc = 0
+textures/specular_exp_tc = 0
+textures/glow_tc = 0
+textures/normal_tc = 0
+textures/shade_param_tc = 0
+
+[sub_resource type="Environment" id=8]
+
+ambient_light/enabled = false
+ambient_light/color = Color( 0, 0, 0, 1 )
+ambient_light/energy = 1.0
+fxaa/enabled = true
+background/mode = 3
+background/color = Color( 0, 0, 0, 1 )
+background/texture = ExtResource( 7 )
+background/energy = 1.0
+background/scale = 1.0
+background/glow = 0.0
+background/canvas_max_layer = null
+glow/enabled = true
+glow/blur_passes = 2
+glow/blur_scale = 1.0
+glow/blur_strength = 1.0
+glow/blur_blend_mode = 1
+glow/bloom = 1.0
+glow/bloom_treshold = 0.0
+dof_blur/enabled = false
+dof_blur/blur_passes = 1
+dof_blur/begin = 100.0
+dof_blur/range = 10.0
+hdr/enabled = false
+hdr/tonemapper = 0
+hdr/exposure = 0.4
+hdr/white = 1.0
+hdr/glow_treshold = 0.95
+hdr/glow_scale = 0.2
+hdr/min_luminance = 0.4
+hdr/max_luminance = 8.0
+hdr/exposure_adj_speed = 0.5
+fog/enabled = false
+fog/begin = 100.0
+fog/begin_color = Color( 0, 0, 0, 1 )
+fog/end_color = Color( 0, 0, 0, 1 )
+fog/attenuation = 1.0
+fog/bg = true
+bcs/enabled = false
+bcs/brightness = 1.0
+bcs/contrast = 2.0
+bcs/saturation = 0.5
+srgb/enabled = false
+
+[sub_resource type="Animation" id=9]
+
+resource/name = "hover"
+length = 10.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("group a:transform/translation")
+tracks/0/interp = 2
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 6, 10 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector3( 0, 0, 0 ), Vector3( 0, 1.24605, 0 ), Vector3( 0, 0, 0 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("group b:transform/translation")
+tracks/1/interp = 2
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 4.5, 10 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector3( 0, 0, 0 ), Vector3( 0, -1.11511, 0 ), Vector3( 0, 0, 0 ) ] }
+
+[sub_resource type="FixedMaterial" id=28]
+
+flags/visible = true
+flags/double_sided = false
+flags/invert_faces = false
+flags/unshaded = true
+flags/on_top = false
+flags/lightmap_on_uv2 = true
+flags/colarray_is_srgb = true
+params/blend_mode = 0
+params/depth_draw = 1
+params/line_width = 1.07449e-38
+fixed_flags/use_alpha = false
+fixed_flags/use_color_array = false
+fixed_flags/use_point_size = false
+fixed_flags/discard_alpha = false
+fixed_flags/use_xy_normalmap = false
+params/diffuse = Color( 0.722656, 0.722656, 0.722656, 1 )
+params/specular = Color( 0, 0, 0, 1 )
+params/emission = Color( 0, 0, 0, 1 )
+params/specular_exp = 40
+params/detail_mix = 1.0
+params/normal_depth = 1
+params/shader = 0
+params/shader_param = 0.5
+params/glow = 0
+params/point_size = 1.0
+uv_xform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+textures/diffuse_tc = 0
+textures/detail_tc = 0
+textures/specular_tc = 0
+textures/emission_tc = 0
+textures/specular_exp_tc = 0
+textures/glow_tc = 0
+textures/normal_tc = 0
+textures/shade_param_tc = 0
+
+[sub_resource type="Animation" id=10]
+
+resource/name = "fade in"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("head:transform/pos")
+tracks/0/interp = 2
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.5, 1 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector2( -78.6581, 0 ), Vector2( -39.329, -31.0939 ), Vector2( 0, 0 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("body segment 1:transform/pos")
+tracks/1/interp = 2
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.5, 1 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector2( 16.0129, 91.5885 ), Vector2( 8.99355, 53.1217 ), Vector2( 13.1226, 14.655 ) ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("body segment 2:transform/pos")
+tracks/2/interp = 2
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 0.5, 1 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector2( 79.2903, 61.4562 ), Vector2( 45.9484, -0.89197 ), Vector2( 21.4839, 2.79444 ) ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("body segment 3:transform/pos")
+tracks/3/interp = 2
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 0.5, 1 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector2( 47.3677, -69.0379 ), Vector2( -3.41936, -41.7907 ), Vector2( 19.0839, -14.5434 ) ] }
+tracks/4/type = "method"
+tracks/4/path = NodePath("../sfx")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ { "args":[ "ai-enter" ], "method":"play" } ] }
+
+[sub_resource type="Animation" id=11]
+
+resource/name = "fade out"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("head:transform/pos")
+tracks/0/interp = 2
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.5, 1 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector2( 0, 0 ), Vector2( -39.329, -31.0939 ), Vector2( -78.6581, 0 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("body segment 1:transform/pos")
+tracks/1/interp = 2
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.5, 1 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector2( 13.1226, 14.655 ), Vector2( 8.99355, 53.1217 ), Vector2( 16.0129, 91.5885 ) ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("body segment 2:transform/pos")
+tracks/2/interp = 2
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 0.5, 1 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector2( 21.4839, 2.79444 ), Vector2( 45.9484, -0.89197 ), Vector2( 79.2903, 61.4562 ) ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("body segment 3:transform/pos")
+tracks/3/interp = 2
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 0.5, 1 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector2( 19.0839, -14.5434 ), Vector2( -3.41936, -41.7907 ), Vector2( 47.3677, -69.0379 ) ] }
+tracks/4/type = "method"
+tracks/4/path = NodePath("../sfx")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ { "args":[ "ai-leave" ], "method":"play" } ] }
+
+[sub_resource type="Animation" id=12]
+
+resource/name = "hover"
+length = 3.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("head:transform/pos")
+tracks/0/interp = 2
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1, 2, 3 ), "transitions":FloatArray( 1, 1, 1, 1 ), "update":0, "values":[ Vector2( 0, 0 ), Vector2( -0.412907, -0.641113 ), Vector2( -1.34194, -1.60278 ), Vector2( 0, 0 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("body segment 1:transform/pos")
+tracks/1/interp = 2
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.6, 2.4, 3 ), "transitions":FloatArray( 1, 1, 1, 1 ), "update":0, "values":[ Vector2( 13.1226, 14.655 ), Vector2( 11.8839, 16.5784 ), Vector2( 12.8129, 18.3414 ), Vector2( 13.1226, 14.655 ) ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("body segment 2:transform/pos")
+tracks/2/interp = 2
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 1.5, 3 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector2( 21.4839, 2.79444 ), Vector2( 20.0387, 4.71777 ), Vector2( 21.4839, 2.79444 ) ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("body segment 3:transform/pos")
+tracks/3/interp = 2
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 0.8, 2.2, 3 ), "transitions":FloatArray( 1, 1, 1, 1 ), "update":0, "values":[ Vector2( 19.0839, -14.5434 ), Vector2( 22.1806, -14.5434 ), Vector2( 17.7651, -14.5434 ), Vector2( 19.0839, -14.5434 ) ] }
+
+[sub_resource type="Animation" id=13]
+
+resource/name = "look down"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("head:polygon")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( -4, -4 ), "update":0, "values":[ Vector2Array( -8.87742, -27.944, -21.471, -18.6479, -20.4387, -6.46674, -30.1419, -1.65839, -25.1871, 16.9339, 2.68387, 14.3694, 7.84516, -22.174 ), Vector2Array( -13.2129, -22.8151, -21.6774, -13.519, -19.6129, -3.26118, -29.5226, 7.63773, -16.1032, 26.23, 5.9871, 15.6516, 8.87742, -20.8918 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("head/eye:transform/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( -4, -4 ), "update":0, "values":[ Vector2( -7.31613, -13.8745 ), Vector2( -6.28387, -9.06614 ) ] }
+
+[sub_resource type="Animation" id=14]
+
+resource/name = "look up"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("head:polygon")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( -4, 1 ), "update":0, "values":[ Vector2Array( -13.2129, -22.8151, -21.6774, -13.519, -19.6129, -3.26118, -29.5226, 7.63773, -16.1032, 26.23, 5.9871, 15.6516, 8.87742, -20.8918 ), Vector2Array( -8.87742, -27.944, -21.471, -18.6479, -20.4387, -6.46674, -30.1419, -1.65839, -25.1871, 16.9339, 2.68387, 14.3694, 7.84516, -22.174 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("head/eye:transform/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( -4, 1 ), "update":0, "values":[ Vector2( -6.28387, -9.06614 ), Vector2( -7.31613, -13.8745 ) ] }
+
+[sub_resource type="Animation" id=30]
+
+resource/name = "end"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( -4, -4 ), "update":0, "values":[ Vector2( 864, 301.653 ), Vector2( 614, 301.653 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("explain field:transform/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( -4, -4 ), "update":0, "values":[ Vector2( 0, 0 ), Vector2( -53.2382, -3.8147e-06 ) ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("explain field:visibility/visible")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":1, "values":[ true, false ] }
+tracks/3/type = "method"
+tracks/3/path = NodePath("../sfx")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ { "args":[ "ai-leave" ], "method":"play" } ] }
+
+[sub_resource type="Animation" id=31]
+
+resource/name = "morph"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("explain field/human2:polygon")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( -4, 1 ), "update":0, "values":[ Vector2Array( -62.4127, -5.14421, -63.2897, -3.9338, -63.2897, -2.7234, -62.5102, -1.81561, -63.4846, -0.907803, -63.4846, 2.4208, -60.0741, 2.4208, -60.1878, -1.17352, -60.8536, -1.96691, -59.9692, -2.75779, -59.8963, -4.2289, -60.8438, -5.24735 ), Vector2Array( -62.4127, -5.14421, -63.8315, -5.13208, -63.9041, -2.9346, -63.9041, -1.97673, -63.9767, -0.906178, -64.013, 2.08013, -59.7309, 2.02378, -59.7309, -1.07521, -59.7309, -2.03308, -59.7672, -3.0473, -59.8035, -4.34324, -59.8397, -5.13208 ) ] }
+tracks/1/type = "method"
+tracks/1/path = NodePath("../sfx")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ { "args":[ "choose-c" ], "method":"play" } ] }
+
+[sub_resource type="Animation" id=32]
+
+resource/name = "start"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( -4, 1 ), "update":0, "values":[ Vector2( 614, 301.653 ), Vector2( 864, 301.653 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("explain field:transform/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( -4, 1 ), "update":0, "values":[ Vector2( -53.2382, -3.8147e-06 ), Vector2( 0, 0 ) ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("explain field:visibility/visible")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ true ] }
+tracks/3/type = "method"
+tracks/3/path = NodePath("../sfx")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ { "args":[ "ai-enter" ], "method":"play" } ] }
+
+[sub_resource type="DynamicFont" id=15]
+
+font/size = 31
+font/use_mipmaps = false
+font/use_filter = true
+font/font = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=16]
+
+font/size = 31
+font/use_mipmaps = false
+font/use_filter = true
+font/font = ExtResource( 14 )
+
+[sub_resource type="DynamicFont" id=17]
+
+font/size = 30
+font/use_mipmaps = false
+font/use_filter = true
+font/font = ExtResource( 14 )
+
+[sub_resource type="DynamicFont" id=18]
+
+font/size = 19
+extra_spacing/bottom = 3
+font/use_mipmaps = false
+font/use_filter = true
+font/font = ExtResource( 16 )
+
+[sub_resource type="Animation" id=19]
+
+length = 2.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("ctc:transform/pos")
+tracks/0/interp = 2
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1, 2 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector2( 27.3846, 10.7585 ), Vector2( 28.227, 10.7585 ), Vector2( 27.3846, 10.7585 ) ] }
+
+[sub_resource type="Animation" id=20]
+
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("box:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( -4, 1 ), "update":0, "values":[ Vector2( -0.0595932, 69.8508 ), Vector2( -0.0595932, 2.8132 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("nametag:transform/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( -4, 1 ), "update":0, "values":[ Vector2( -47.1135, -22.1038 ), Vector2( -24.4946, -22.1038 ) ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visibility/visible")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ true ] }
+
+[sub_resource type="Animation" id=21]
+
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("nametag:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( -4, 1 ), "update":0, "values":[ Vector2( -24.4946, -22.1038 ), Vector2( -47.1135, -22.1038 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("box:transform/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( -4, 1 ), "update":0, "values":[ Vector2( -0.0595932, 2.8132 ), Vector2( -0.0595932, 69.8508 ) ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("ctc:visibility/visible")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ false ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:visibility/visible")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "update":1, "values":[ true, false ] }
+
+[sub_resource type="Animation" id=22]
+
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( -4, 1 ), "update":0, "values":[ Vector2( 628.214, -70.694 ), Vector2( 628.214, 87.6038 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visibility/visible")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ true ] }
+
+[sub_resource type="Animation" id=23]
+
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( -4, 1 ), "update":0, "values":[ Vector2( 628.214, 87.6038 ), Vector2( 628.214, -70.694 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visibility/visible")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "update":1, "values":[ true, false ] }
+
+[sub_resource type="Animation" id=24]
+
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("yes:rect/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 0.25, 1 ), "update":0, "values":[ Vector2( 855, 172 ), Vector2( 1294, 172 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("no:rect/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 0.25, 1 ), "update":0, "values":[ Vector2( -72, 173 ), Vector2( -234, 50 ) ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("no:rect/scale")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 0.25, 1 ), "update":0, "values":[ Vector2( 1, 1 ), Vector2( 2, 2 ) ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("no:visibility/opacity")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 1.0, 0.0 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("no:visibility/visible")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "update":1, "values":[ true, false ] }
+tracks/5/type = "value"
+tracks/5/path = NodePath("yes:visibility/visible")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "update":1, "values":[ true, false ] }
+tracks/6/type = "method"
+tracks/6/path = NodePath("../sfx")
+tracks/6/interp = 1
+tracks/6/imported = false
+tracks/6/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ { "args":[ "choose", false ], "method":"play" } ] }
+
+[sub_resource type="Animation" id=25]
+
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("no:rect/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 0.25, 1 ), "update":0, "values":[ Vector2( -72, 173 ), Vector2( -479, 173 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("yes:rect/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 0.25, 1 ), "update":0, "values":[ Vector2( 855, 172 ), Vector2( 672, 45 ) ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("yes:rect/scale")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 0.25, 1 ), "update":0, "values":[ Vector2( 1, 1 ), Vector2( 2, 2 ) ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("yes:visibility/opacity")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 1.0, 0.0 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("yes:visibility/visible")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "update":1, "values":[ true, false ] }
+tracks/5/type = "value"
+tracks/5/path = NodePath("no:visibility/visible")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "update":1, "values":[ true, false ] }
+tracks/6/type = "method"
+tracks/6/path = NodePath("../sfx")
+tracks/6/interp = 1
+tracks/6/imported = false
+tracks/6/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ { "args":[ "choose", false ], "method":"play" } ] }
+
+[sub_resource type="Animation" id=26]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("yes:rect/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 0.148651, 1 ), "update":0, "values":[ Vector2( 1286, 172 ), Vector2( 855, 172 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("no:rect/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 0.148651, 1 ), "update":0, "values":[ Vector2( -475, 173 ), Vector2( -72, 173 ) ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("no:visibility/visible")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ true ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("no:visibility/opacity")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":0, "values":[ 1.0 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("no:rect/scale")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":0, "values":[ Vector2( 1, 1 ) ] }
+tracks/5/type = "value"
+tracks/5/path = NodePath("yes:rect/scale")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":0, "values":[ Vector2( 1, 1 ) ] }
+tracks/6/type = "value"
+tracks/6/path = NodePath("yes:visibility/visible")
+tracks/6/interp = 1
+tracks/6/imported = false
+tracks/6/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ true ] }
+tracks/7/type = "value"
+tracks/7/path = NodePath("yes:visibility/opacity")
+tracks/7/interp = 1
+tracks/7/imported = false
+tracks/7/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":0, "values":[ 1.0 ] }
+tracks/8/type = "method"
+tracks/8/path = NodePath("../sfx")
+tracks/8/interp = 1
+tracks/8/imported = false
+tracks/8/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ { "args":[ "slide", false ], "method":"play" } ] }
+
+[sub_resource type="SampleLibrary" id=27]
+
+samples/advance = { "db":0.0, "pitch":1.0, "sample":ExtResource( 26 ) }
+samples/ai-enter = { "db":0.0, "pitch":1.0, "sample":ExtResource( 27 ) }
+samples/ai-leave = { "db":0.0, "pitch":1.0, "sample":ExtResource( 28 ) }
+samples/choose = { "db":0.0, "pitch":1.0, "sample":ExtResource( 29 ) }
+samples/choose-b = { "db":0.0, "pitch":1.0, "sample":ExtResource( 30 ) }
+samples/choose-c = { "db":-2.5, "pitch":1.0, "sample":ExtResource( 31 ) }
+samples/meter = { "db":0.0, "pitch":1.0, "sample":ExtResource( 32 ) }
+samples/screen = { "db":0.0, "pitch":1.0, "sample":ExtResource( 33 ) }
+samples/slide = { "db":0.0, "pitch":1.0, "sample":ExtResource( 34 ) }
+
+[node name="root" type="Node"]
+
+[node name="interpreter" type="Node" parent="."]
+
+script/script = ExtResource( 1 )
+__meta__ = { "_editor_icon":ExtResource( 2 ) }
+filename = "res://sglscript/start.sglscript"
+auto_start = true
+
+[node name="flow control" type="Node" parent="interpreter"]
+
+script/script = ExtResource( 3 )
+
+[node name="bg" type="Spatial" parent="interpreter"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+script/script = ExtResource( 4 )
+
+[node name="camera" type="Camera" parent="interpreter/bg"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( -3.66206e-08, 0.837782, -0.546004, 1.98448e-08, 0.546004, 0.837782, 1, 1.98448e-08, -3.66206e-08, -5.99107, 0.842392, -3.27352 )
+projection = 0
+fov = 60.0
+near = 0.1
+far = 100.0
+keep_aspect = 1
+current = false
+visible_layers = 1048575
+environment = null
+h_offset = 0.0
+v_offset = 0.0
+
+[node name="animations" type="AnimationPlayer" parent="interpreter/bg"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/default = SubResource( 1 )
+"anims/face screen" = SubResource( 2 )
+"anims/get up" = SubResource( 3 )
+"anims/hide screen" = SubResource( 33 )
+"anims/leave screen" = SubResource( 34 )
+"anims/show screen" = SubResource( 29 )
+"anims/turn around" = SubResource( 4 )
+"next/hide screen" = ""
+"next/leave screen" = ""
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="ground" type="Spatial" parent="interpreter/bg"]
+
+editor/display_folded = true
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="platform" type="TestCube" parent="interpreter/bg/ground"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 2, 0, 0, 0, 0.25, 0, 0, 0, 10, 7.43222, 0, 0 )
+layers = 1
+geometry/visible = true
+geometry/material_override = SubResource( 5 )
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="platform 2" type="TestCube" parent="interpreter/bg/ground"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 2, 0, 0, 0, 0.25, 0, 0, 0, 10, -10.4798, 0, 0 )
+layers = 1
+geometry/visible = true
+geometry/material_override = SubResource( 5 )
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="platform3" type="TestCube" parent="interpreter/bg/ground"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( -8.74228e-08, 0, 7, 0, 0.25, 0, -2, 0, -3.0598e-07, -1.52197, 0, -7.92853 )
+layers = 1
+geometry/visible = true
+geometry/material_override = SubResource( 5 )
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="platform4" type="TestCube" parent="interpreter/bg/ground"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( -8.74228e-08, 0, 7, 0, 0.25, 0, -2, 0, -3.0598e-07, -1.52197, 0, 7.94171 )
+layers = 1
+geometry/visible = true
+geometry/material_override = SubResource( 5 )
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="ground" type="TestCube" parent="interpreter/bg/ground"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 7, 0, 0, 0, 0.25, 0, 0, 0, 6, -1.55285, -0.365326, 0 )
+layers = 1
+geometry/visible = true
+geometry/material_override = SubResource( 6 )
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="column" type="TestCube" parent="interpreter/bg"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 0.5, 0, 0, 0, 5, 0, 0, 0, 0.5, 7.33657, 5.09647, 7.88285 )
+layers = 1
+geometry/visible = true
+geometry/material_override = SubResource( 5 )
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="column 2" type="TestCube" parent="interpreter/bg"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 0.5, 0, 0, 0, 5, 0, 0, 0, 0.5, 7.33657, 5.09647, -7.65244 )
+layers = 1
+geometry/visible = true
+geometry/material_override = SubResource( 5 )
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="sky" type="TestCube" parent="interpreter/bg"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
+visibility/visible = false
+layers = 1
+geometry/visible = true
+geometry/material_override = SubResource( 7 )
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = true
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="interpreter/bg"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+environment = SubResource( 8 )
+
+[node name="floating cubes" type="Spatial" parent="interpreter/bg"]
+
+editor/display_folded = true
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="group a" type="Spatial" parent="interpreter/bg/floating cubes"]
+
+editor/display_folded = true
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0738395, 0 )
+
+[node name="cube7" type="TestCube" parent="interpreter/bg/floating cubes/group a"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 1, -26.7256, 9.72663, 10.6039 )
+layers = 1
+geometry/visible = true
+geometry/material_override = SubResource( 5 )
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="cube8" type="TestCube" parent="interpreter/bg/floating cubes/group a"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 1, -26.7256, 9.72663, -12.9011 )
+layers = 1
+geometry/visible = true
+geometry/material_override = SubResource( 5 )
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="cube9" type="TestCube" parent="interpreter/bg/floating cubes/group a"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 1, -26.7256, 4.14146, -6.80119 )
+layers = 1
+geometry/visible = true
+geometry/material_override = SubResource( 5 )
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="cube10" type="TestCube" parent="interpreter/bg/floating cubes/group a"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 1, -20.7859, 4.14146, 6.07074 )
+layers = 1
+geometry/visible = true
+geometry/material_override = SubResource( 5 )
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="cube11" type="TestCube" parent="interpreter/bg/floating cubes/group a"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 1, -20.7859, 0.355523, -2.4631 )
+layers = 1
+geometry/visible = true
+geometry/material_override = SubResource( 5 )
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="cube12" type="TestCube" parent="interpreter/bg/floating cubes/group a"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 1, -26.3232, 0.355523, 14.9146 )
+layers = 1
+geometry/visible = true
+geometry/material_override = SubResource( 5 )
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="cube13" type="TestCube" parent="interpreter/bg/floating cubes/group a"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 1, -12.7992, 5.12306, 22.3404 )
+layers = 1
+geometry/visible = true
+geometry/material_override = SubResource( 5 )
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="cube14" type="TestCube" parent="interpreter/bg/floating cubes/group a"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 1, -12.7992, 5.12306, -21.1973 )
+layers = 1
+geometry/visible = true
+geometry/material_override = SubResource( 5 )
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="cube15" type="TestCube" parent="interpreter/bg/floating cubes/group a"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 1, -20.2823, 5.12306, -13.648 )
+layers = 1
+geometry/visible = true
+geometry/material_override = SubResource( 5 )
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="cube16" type="TestCube" parent="interpreter/bg/floating cubes/group a"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 1, 9.68828, 2.26083, -10.519 )
+layers = 1
+geometry/visible = true
+geometry/material_override = SubResource( 5 )
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="cube17" type="TestCube" parent="interpreter/bg/floating cubes/group a"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 1, 9.68828, 5.68833, 11.1013 )
+layers = 1
+geometry/visible = true
+geometry/material_override = SubResource( 5 )
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="group b" type="Spatial" parent="interpreter/bg/floating cubes"]
+
+editor/display_folded = true
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0449604, 0 )
+
+[node name="cube" type="TestCube" parent="interpreter/bg/floating cubes/group b"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 1, -4.80113, 5.09647, -16.7201 )
+layers = 1
+geometry/visible = true
+geometry/material_override = SubResource( 5 )
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="cube1" type="TestCube" parent="interpreter/bg/floating cubes/group b"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 1, 4.45461, 5.09647, -22.2227 )
+layers = 1
+geometry/visible = true
+geometry/material_override = SubResource( 5 )
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="cube2" type="TestCube" parent="interpreter/bg/floating cubes/group b"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 1, 4.45461, 5.09647, 14.3072 )
+layers = 1
+geometry/visible = true
+geometry/material_override = SubResource( 5 )
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="cube3" type="TestCube" parent="interpreter/bg/floating cubes/group b"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 1, -5.25141, 5.09647, 19.2326 )
+layers = 1
+geometry/visible = true
+geometry/material_override = SubResource( 5 )
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="cube18" type="TestCube" parent="interpreter/bg/floating cubes/group b"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 1, 13.4868, 5.09647, -0.827477 )
+layers = 1
+geometry/visible = true
+geometry/material_override = SubResource( 5 )
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="cube4" type="TestCube" parent="interpreter/bg/floating cubes/group b"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 1, -16.9924, 5.09647, 14.3893 )
+layers = 1
+geometry/visible = true
+geometry/material_override = SubResource( 5 )
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="cube5" type="TestCube" parent="interpreter/bg/floating cubes/group b"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 1, -16.9924, 5.09647, -7.86371 )
+layers = 1
+geometry/visible = true
+geometry/material_override = SubResource( 5 )
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="cube6" type="TestCube" parent="interpreter/bg/floating cubes/group b"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 1, -26.7256, 0.425552, -0.0149479 )
+layers = 1
+geometry/visible = true
+geometry/material_override = SubResource( 5 )
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="cube hover" type="AnimationPlayer" parent="interpreter/bg/floating cubes"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/hover = SubResource( 9 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "hover"
+
+[node name="inside screen" type="Viewport" parent="interpreter/bg"]
+
+rect = Rect2( 0, 0, 814, 278 )
+own_world = false
+world = null
+transparent_bg = false
+render_target/enabled = true
+render_target/v_flip = false
+render_target/clear_on_new_frame = true
+render_target/filter = false
+render_target/gen_mipmaps = false
+render_target/update_mode = 2
+audio_listener/enable_2d = false
+audio_listener/enable_3d = false
+physics/object_picking = false
+gui/disable_input = false
+
+[node name="scene" parent="interpreter/bg/inside screen" instance=ExtResource( 8 )]
+
+[node name="screen" type="Quad" parent="interpreter/bg"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( -4.37114e-08, 0, -1, 0, 0, 0, 1, 0, -4.37114e-08, 8.00387, 6, 0 )
+visibility/visible = false
+layers = 1
+geometry/visible = true
+geometry/material_override = SubResource( 28 )
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+quad/axis = 2
+quad/size = Vector2( 14, 6 )
+quad/offset = Vector2( 0, 0 )
+quad/centered = true
+
+[node name="bg placeholder" type="Sprite" parent="interpreter"]
+
+visibility/visible = false
+texture = ExtResource( 9 )
+centered = false
+
+[node name="screen" type="Sprite" parent="interpreter"]
+
+visibility/visible = false
+transform/pos = Vector2( 630.071, 309.545 )
+texture = ExtResource( 10 )
+
+[node name="AI" type="Node2D" parent="interpreter"]
+
+editor/display_folded = true
+transform/pos = Vector2( 614, 301.653 )
+transform/scale = Vector2( 9.6875, 6.23916 )
+
+[node name="explain field" type="Node2D" parent="interpreter/AI"]
+
+editor/display_folded = true
+visibility/visible = false
+transform/pos = Vector2( -53.2382, -3.8147e-06 )
+
+[node name="bg" type="Polygon2D" parent="interpreter/AI/explain field"]
+
+polygon = Vector2Array( -69.3677, -31.3098, -80.5161, -13.9998, -75.9742, 1.06633, -85.2645, 23.8258, -55.7419, 30.2369, -14.4516, 19.338, -12.1806, -9.51202, -27.2516, -38.0415, -50.5806, -26.5015 )
+uv = Vector2Array(  )
+color = Color( 0.808594, 0.808594, 0.808594, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="human" type="Polygon2D" parent="interpreter/AI/explain field"]
+
+transform/pos = Vector2( -5.26196, 0 )
+polygon = Vector2Array( -62.4127, -5.14421, -63.2897, -3.9338, -63.2897, -2.7234, -62.5102, -1.81561, -63.4846, -0.907803, -63.4846, 2.4208, -60.0741, 2.4208, -60.1878, -1.17352, -60.8536, -1.96691, -59.9692, -2.75779, -59.8963, -4.2289, -60.8438, -5.24735 )
+uv = Vector2Array(  )
+color = Color( 0, 0, 0, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="screen3" type="Polygon2D" parent="interpreter/AI/explain field"]
+
+transform/pos = Vector2( -17.345, 0.453917 )
+polygon = Vector2Array( -46.1396, -5.59811, -46.2371, 0.907803, -40.6828, 0.907803, -40.6828, -5.74941 )
+uv = Vector2Array(  )
+color = Color( 0, 0, 0, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="screen" type="Polygon2D" parent="interpreter/AI/explain field"]
+
+transform/pos = Vector2( 1.07188, 1.90735e-06 )
+polygon = Vector2Array( -46.1396, -5.59811, -46.2371, 0.907803, -40.6828, 0.907803, -40.6828, -5.74941 )
+uv = Vector2Array(  )
+color = Color( 0, 0, 0, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="screen1" type="Polygon2D" parent="interpreter/AI/explain field"]
+
+transform/pos = Vector2( 1.07188, 14.9787 )
+polygon = Vector2Array( -46.1396, -5.59811, -46.2371, 0.907803, -40.6828, 0.907803, -40.6828, -5.74941 )
+uv = Vector2Array(  )
+color = Color( 0, 0, 0, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="screen2" type="Polygon2D" parent="interpreter/AI/explain field"]
+
+transform/pos = Vector2( 1.07188, -13.3144 )
+polygon = Vector2Array( -46.1396, -5.59811, -46.2371, 0.907803, -40.6828, 0.907803, -40.6828, -5.74941 )
+uv = Vector2Array(  )
+color = Color( 0, 0, 0, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="human1" type="Polygon2D" parent="interpreter/AI/explain field"]
+
+transform/pos = Vector2( 26.4073, -14.5248 )
+polygon = Vector2Array( -62.4127, -5.14421, -63.2897, -3.9338, -63.2897, -2.7234, -62.5102, -1.81561, -63.4846, -0.907803, -63.4846, 2.4208, -60.0741, 2.4208, -60.1878, -1.17352, -60.8536, -1.96691, -59.9692, -2.75779, -59.8963, -4.2289, -60.8438, -5.24735 )
+uv = Vector2Array(  )
+color = Color( 0, 0, 0, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="human2" type="Polygon2D" parent="interpreter/AI/explain field"]
+
+transform/pos = Vector2( 26.4073, -1.0591 )
+polygon = Vector2Array( -62.4127, -5.14421, -63.2897, -3.9338, -63.2897, -2.7234, -62.5102, -1.81561, -63.4846, -0.907803, -63.4846, 2.4208, -60.0741, 2.4208, -60.1878, -1.17352, -60.8536, -1.96691, -59.9692, -2.75779, -59.8963, -4.2289, -60.8438, -5.24735 )
+uv = Vector2Array(  )
+color = Color( 0, 0, 0, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="human3" type="Polygon2D" parent="interpreter/AI/explain field"]
+
+transform/pos = Vector2( 26.4073, 13.617 )
+polygon = Vector2Array( -62.4127, -5.14421, -63.2897, -3.9338, -63.2897, -2.7234, -62.5102, -1.81561, -63.4846, -0.907803, -63.4846, 2.4208, -60.0741, 2.4208, -60.1878, -1.17352, -60.8536, -1.96691, -59.9692, -2.75779, -59.8963, -4.2289, -60.8438, -5.24735 )
+uv = Vector2Array(  )
+color = Color( 0, 0, 0, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="line1" type="Polygon2D" parent="interpreter/AI/explain field"]
+
+polygon = Vector2Array( -56.9559, -2.7234, -56.9559, -1.81561, -46.2371, -1.81561, -46.2371, -2.7234 )
+uv = Vector2Array(  )
+color = Color( 0.3125, 0.3125, 0.3125, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="line2" type="Polygon2D" parent="interpreter/AI/explain field"]
+
+transform/pos = Vector2( 0, -8.47281 )
+polygon = Vector2Array( -56.8584, 3.7825, -56.8584, 4.6903, -46.0422, -6.50592, -46.0422, -7.86762 )
+uv = Vector2Array(  )
+color = Color( 0.3125, 0.3125, 0.3125, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="line3" type="Polygon2D" parent="interpreter/AI/explain field"]
+
+transform/pos = Vector2( 0, 19.669 )
+transform/scale = Vector2( 1, 1 )
+polygon = Vector2Array( -56.9559, -20.4255, -56.9559, -19.2151, -46.0422, -6.50592, -46.0422, -7.86762 )
+uv = Vector2Array(  )
+color = Color( 0.3125, 0.3125, 0.3125, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="body segment 3" type="Polygon2D" parent="interpreter/AI"]
+
+transform/pos = Vector2( 47.3677, -69.0379 )
+transform/scale = Vector2( 0.417419, 0.64425 )
+polygon = Vector2Array( -16.7829, -3.26414, -5.40734, -14.2106, 7.45202, -14.2106, 15.8601, 13.1555, 1.51693, 18.1311 )
+uv = Vector2Array(  )
+color = Color( 0.411765, 0.494118, 0.435294, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( -1.23872, 0.37617 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="body segment 2" type="Polygon2D" parent="interpreter/AI"]
+
+transform/pos = Vector2( 79.2903, 61.4562 )
+transform/scale = Vector2( 0.598064, 0.78711 )
+polygon = Vector2Array( -12.4488, -4.43542, -3.12837, -15.0241, 9.64401, -15.0241, 13.4412, 2.89521, 9.98921, 15.1129, -6.58037, 15.1129 )
+uv = Vector2Array(  )
+color = Color( 0.568627, 0.67451, 0.647059, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="body segment 1" type="Polygon2D" parent="interpreter/AI"]
+
+transform/pos = Vector2( 16.0129, 91.5885 )
+transform/scale = Vector2( 0.850968, 1.13972 )
+polygon = Vector2Array( -12.0243, -4.18821, -2.80515, -15.4385, 8.11221, -8.68834, 11.7513, 2.84325, 2.047, 11.281, -11.539, 7.9059 )
+uv = Vector2Array(  )
+color = Color( 0.745098, 0.827451, 0.792157, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="head" type="Polygon2D" parent="interpreter/AI"]
+
+transform/pos = Vector2( -78.6581, 0 )
+polygon = Vector2Array( -13.2129, -22.8151, -21.6774, -13.519, -19.6129, -3.26118, -29.5226, 7.63773, -16.1032, 26.23, 5.9871, 15.6516, 8.87742, -20.8918 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="eye" type="Polygon2D" parent="interpreter/AI/head"]
+
+transform/pos = Vector2( -6.28387, -9.06614 )
+transform/scale = Vector2( 0.685806, 0.546693 )
+polygon = Vector2Array( -5.88899, 5.34113, 0.733772, -4.04055, 8.86172, -4.04055, 2.23895, 5.34113 )
+uv = Vector2Array(  )
+color = Color( 0.717647, 0.898039, 0.847059, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="transition" type="AnimationPlayer" parent="interpreter/AI"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+"anims/fade in" = SubResource( 10 )
+"anims/fade out" = SubResource( 11 )
+anims/hover = SubResource( 12 )
+"next/fade in" = ""
+"next/fade out" = ""
+next/hover = ""
+playback/active = true
+playback/speed = 1.0
+blend_times = [ "hover", "fade out", 0.5, "fade in", "hover", 1.0 ]
+autoplay = ""
+
+[node name="expressions" type="AnimationPlayer" parent="interpreter/AI"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+"anims/look down" = SubResource( 13 )
+"anims/look up" = SubResource( 14 )
+"next/look down" = ""
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="explanation" type="AnimationPlayer" parent="interpreter/AI"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/end = SubResource( 30 )
+anims/morph = SubResource( 31 )
+anims/start = SubResource( 32 )
+next/end = ""
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="mwin" type="Node2D" parent="interpreter"]
+
+editor/display_folded = true
+visibility/visible = false
+transform/pos = Vector2( 637.427, 617.238 )
+transform/scale = Vector2( 16.7813, 2.84375 )
+script/script = ExtResource( 11 )
+
+[node name="box" type="Sprite" parent="interpreter/mwin"]
+
+transform/pos = Vector2( -0.0595932, 69.8508 )
+transform/scale = Vector2( 0.0595903, 0.351648 )
+texture = ExtResource( 12 )
+
+[node name="text" type="RichTextLabel" parent="interpreter/mwin/box"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -494.0
+margin/top = -45.0
+margin/right = 475.0
+margin/bottom = 41.0
+custom_fonts/italics_font = SubResource( 15 )
+custom_fonts/normal_font = SubResource( 16 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode/enabled = true
+bbcode/bbcode = "I have three pieces and I\'ll give copies of these pieces to [i]three different people,[/i] how many copies are there total\? Three\?"
+visible_characters = -1
+
+[node name="nametag" type="Sprite" parent="interpreter/mwin"]
+
+transform/pos = Vector2( -47.1135, -22.1038 )
+transform/scale = Vector2( 0.0595903, 0.351648 )
+texture = ExtResource( 15 )
+
+[node name="text" type="RichTextLabel" parent="interpreter/mwin/nametag"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -127.0
+margin/top = -26.0
+margin/right = 111.0
+margin/bottom = 17.0
+custom_fonts/bold_font = SubResource( 17 )
+custom_fonts/normal_font = SubResource( 18 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode/enabled = true
+bbcode/bbcode = "[center][b]P[/b]ARTICIPANT[/center]"
+visible_characters = -1
+__meta__ = { "_edit_lock_":true }
+
+[node name="ctc" type="Sprite" parent="interpreter/mwin"]
+
+visibility/visible = false
+transform/pos = Vector2( 27.3846, 10.7585 )
+transform/scale = Vector2( 0.0595903, 0.351648 )
+texture = ExtResource( 17 )
+
+[node name="ctc bounce" type="AnimationPlayer" parent="interpreter/mwin"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/bounce = SubResource( 19 )
+next/bounce = ""
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "bounce"
+
+[node name="transition" type="AnimationPlayer" parent="interpreter/mwin"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+"anims/fade in" = SubResource( 20 )
+"anims/fade out" = SubResource( 21 )
+"next/fade in" = ""
+playback/active = true
+playback/speed = 1.0
+blend_times = [ "fade in", "fade in", 0.5, "fade in", "fade out", 0.5 ]
+autoplay = ""
+
+[node name="meter" type="Sprite" parent="interpreter"]
+
+editor/display_folded = true
+visibility/visible = false
+transform/pos = Vector2( 628.214, -70.694 )
+texture = ExtResource( 18 )
+script/script = ExtResource( 19 )
+
+[node name="meter" type="TextureProgress" parent="interpreter/meter"]
+
+visibility/behind_parent = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -405.0
+margin/top = -34.0
+margin/right = 401.0
+margin/bottom = 6.0
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 50.0
+range/exp_edit = false
+range/rounded = false
+texture/under = null
+texture/over = null
+texture/progress = ExtResource( 20 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="transition" type="AnimationPlayer" parent="interpreter/meter"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+"anims/fade in" = SubResource( 22 )
+"anims/fade out" = SubResource( 23 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="buttons" type="Node" parent="interpreter"]
+
+editor/display_folded = true
+script/script = ExtResource( 21 )
+
+[node name="yes" type="TextureButton" parent="interpreter/buttons"]
+
+visibility/visible = false
+focus_neighbour/left = NodePath("../no")
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 1294.0
+margin/top = 172.0
+margin/right = 1787.0
+margin/bottom = 448.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 22 )
+textures/hover = ExtResource( 23 )
+textures/focused = ExtResource( 23 )
+
+[node name="no" type="TextureButton" parent="interpreter/buttons"]
+
+visibility/visible = false
+visibility/opacity = 0.0
+rect/scale = Vector2( 2, 2 )
+focus_neighbour/right = NodePath("../yes")
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -234.0
+margin/top = 50.0
+margin/right = 241.0
+margin/bottom = 326.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 24 )
+textures/hover = ExtResource( 25 )
+textures/focused = ExtResource( 25 )
+
+[node name="transition" type="AnimationPlayer" parent="interpreter/buttons"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+"anims/choose no" = SubResource( 24 )
+"anims/choose yes" = SubResource( 25 )
+"anims/fade in" = SubResource( 26 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="sfx" type="SamplePlayer" parent="interpreter"]
+
+config/polyphony = 1
+config/samples = SubResource( 27 )
+default/volume_db = 0.0
+default/pitch_scale = 1.0
+default/pan = 0.0
+default/depth = 0.0
+default/height = 0.0
+default/filter/type = 0
+default/filter/cutoff = 5000.0
+default/filter/resonance = 1.0
+default/filter/gain = 1.0
+default/reverb_room = 2
+default/reverb_send = 0.0
+default/chorus_send = 0.0
+
+[node name="bgm" type="EventPlayer" parent="interpreter"]
+
+stream/stream = null
+stream/play = false
+stream/loop = true
+stream/volume_db = 0.0
+stream/pitch_scale = 1.0
+stream/tempo_scale = 1.0
+stream/autoplay = false
+stream/paused = false
+script/script = ExtResource( 35 )
+
+[node name="mockup" type="Sprite" parent="."]
+
+visibility/visible = false
+texture = ExtResource( 36 )
+centered = false
+__meta__ = { "_edit_lock_":true }
+
+[node name="debug window" type="WindowDialog" parent="."]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 407.0
+margin/top = 210.0
+margin/right = 850.0
+margin/bottom = 436.0
+popup/exclusive = true
+window/title = "Debug Window"
+script/script = ExtResource( 37 )
+
+[node name="script list" type="ItemList" parent="debug window"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 142.0
+margin/top = 34.0
+margin/right = 418.0
+margin/bottom = 205.0
+
+[node name="ButtonGroup" type="VBoxContainer" parent="debug window"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 18.0
+margin/top = 43.0
+margin/right = 117.0
+margin/bottom = 207.0
+custom_constants/separation = 4
+alignment = 0
+
+[node name="Button" type="Button" parent="debug window/ButtonGroup"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 99.0
+margin/bottom = 20.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Show Mwin"
+flat = false
+
+[node name="Button 2" type="Button" parent="debug window/ButtonGroup"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 24.0
+margin/right = 99.0
+margin/bottom = 44.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Hide Mwin"
+flat = false
+
+[node name="Button 3" type="Button" parent="debug window/ButtonGroup"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 48.0
+margin/right = 99.0
+margin/bottom = 68.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Show Buttons"
+flat = false
+
+[node name="Button 4" type="Button" parent="debug window/ButtonGroup"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 72.0
+margin/right = 99.0
+margin/bottom = 92.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Choose Yes"
+flat = false
+
+[node name="Button 5" type="Button" parent="debug window/ButtonGroup"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 96.0
+margin/right = 99.0
+margin/bottom = 116.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Choose No"
+flat = false
+
+[node name="Button 6" type="Button" parent="debug window/ButtonGroup"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 120.0
+margin/right = 99.0
+margin/bottom = 140.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Show Meter"
+flat = false
+
+[node name="Button 7" type="Button" parent="debug window/ButtonGroup"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 144.0
+margin/right = 99.0
+margin/bottom = 164.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Hide Meter"
+flat = false
+
+[node name="Label" type="Label" parent="debug window"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 28.0
+margin/top = 18.0
+margin/right = 101.0
+margin/bottom = 32.0
+text = "Animations"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Button" type="Button" parent="debug window"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 144.0
+margin/top = 5.0
+margin/right = 281.0
+margin/bottom = 25.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Populate Script Info"
+flat = false
+
+[node name="debug button" type="Button" parent="."]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 25.0
+margin/top = 21.0
+margin/right = 199.0
+margin/bottom = 52.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Show Debug Window"
+flat = false
+
+[connection signal="pressed" from="interpreter/buttons/yes" to="interpreter/buttons" method="click_yes"]
+
+[connection signal="pressed" from="interpreter/buttons/no" to="interpreter/buttons" method="click_no"]
+
+[connection signal="pressed" from="debug window/ButtonGroup/Button" to="interpreter/mwin/transition" method="play" binds= [ "fade in" ]]
+
+[connection signal="pressed" from="debug window/ButtonGroup/Button 2" to="interpreter/mwin/transition" method="play" binds= [ "fade out" ]]
+
+[connection signal="pressed" from="debug window/ButtonGroup/Button 3" to="interpreter/buttons/transition" method="play" binds= [ "fade in" ]]
+
+[connection signal="pressed" from="debug window/ButtonGroup/Button 4" to="interpreter/buttons/transition" method="play" binds= [ "choose yes" ]]
+
+[connection signal="pressed" from="debug window/ButtonGroup/Button 5" to="interpreter/buttons/transition" method="play" binds= [ "choose no" ]]
+
+[connection signal="pressed" from="debug window/ButtonGroup/Button 6" to="interpreter/meter/transition" method="play" binds= [ "fade in" ]]
+
+[connection signal="pressed" from="debug window/ButtonGroup/Button 7" to="interpreter/meter/transition" method="play" binds= [ "fade out" ]]
+
+[connection signal="pressed" from="debug window/Button" to="debug window" method="on_load_script"]
+
+[connection signal="pressed" from="debug button" to="debug window" method="popup"]
+
+

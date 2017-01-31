@@ -1,0 +1,276 @@
+[define macro: old: "`" new: "[no space][continue][no space]"]
+[define macro: old: "*" new: "[toggle italic]"]
+[define all caps header handler: command: "set name" argument: "text"]
+
+PARTICIPANT
+\*ahem\*. This thing on? Yeah? Okay, good.
+`
+So, first question.
+
+;; Skip ahead
+;; [Change script: file: "epilogue.sglscript"]
+
+[Play animation: player: "../bg/inside screen/scene/animations" animation: "look up"]
+[Play animation: player: "../bg/inside screen/scene/animations" animation: "look up breathe" blocking: no]
+
+[play music: file: "par-first.it"]
+
+[Label: name: "question one"]
+	PARTICIPANT
+	Are you a computer? 
+	
+	[Choice: no: "question one fail"]
+	
+	PARTICIPANT
+	Ah hah!
+	`
+	Only a human could think of an answer that sarcastic. [Change score: by: 10]
+	
+	[Jump to: label: "question two"]
+
+[Label: name: "question one fail"]
+	PARTICIPANT
+	Nice try. [Change score: by: -10]
+
+[Label: name: "question two"]
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "look down"]
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "breathe" blocking: no]
+
+	PARTICIPANT
+	Now, tell me.
+	`
+	Is 2+2=5 true?
+	
+	[Choice: no: "question two fail"]
+	
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "look up"]
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "look up breathe" blocking: no]
+	
+	PARTICIPANT
+	I see you know your Orwell, whoever you are. [Change score: by: 10]
+
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "look down"]
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "breathe" blocking: no]
+	
+	[Jump to: label: "question three"]
+
+[Label: name: "question two fail"]
+	PARTICIPANT
+	If you take it *literally,* of course it isn't. [Change score: by: -10]
+
+[Label: name: "question three"]
+	PARTICIPANT
+	Now what about cos(5)? Is that 0.2836621855?
+	
+	[Choice: yes: "question three fail"]
+	
+	PARTICIPANT
+	I imagine so. There's too many variables. [Change score: by: 10]
+
+	[jump to: label: "question four"]
+
+[Label: name: "question three fail"]
+	PARTICIPANT
+	Well, possibly. If you just plug that *into a calculator.* [Change score: by: -10]
+
+[Label: name: "question four"]
+	PARTICIPANT
+	Now, is the meaning of life 42?
+	
+	[Choice: no: "question four fail"]
+
+    PARTICIPANT
+    Ah ha! Only a *human* would get that reference! [Change score: by: 10]
+
+[Label: name: "question four tangent"]
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "look up"]
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "look up breathe" blocking: no]
+
+    PARTICIPANT
+    Or wait. That's what the *computer* in that book said. Does that mean you're a computer? [Change score: by: -10]
+    `
+    No wait, a human could say that too.[Change score: by: 10] But, well...[Change score: by: -10] Hmmmmm.[Change score: by: 20] Aaaargh.[Change score: by: -10]
+    `
+    I should probably just give you the benefit of the doubt if I'm this unsure.[Change score: by: 10]
+
+    [Jump to: label: "question five"]
+
+[Label: name: "question four fail"]
+    PARTICIPANT
+    Well, I guess that makes sense.
+
+    [Jump to: label: "question four tangent"]
+
+[Label: name: "question five"]
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "look down"]
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "breathe" blocking: no]
+
+	PARTICIPANT
+	Now for the hardest question of all.
+	`
+	I have three pieces and I'll give copies of these pieces to three different people, how many copies are there total? Six?
+	
+	[Choice: yes: "question five fail"]
+
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "look up"]
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "look up breathe" blocking: no]
+	
+	PARTICIPANT
+	Yes! I gave copies of all three pieces to all three people. Any *human* would know that. [Change score: by: 10]
+	
+	[jump to: label: "question six"]
+
+[Label: name: "question five fail"]
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "look up"]
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "look up breathe" blocking: no]
+
+	PARTICIPANT
+	Wrong.
+	[Change score: by: -30]
+
+[Label: name: "question six"]
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "look down"]
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "breathe" blocking: no]
+
+	PARTICIPANT
+	You've done well so far.
+	`
+	I'm going to have to get out the big guns now.
+	`
+	Tell me...
+
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "look up"]
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "look up breathe" blocking: no]
+
+    PARTICIPANT
+	Did Han Solo stab himself to save his son in Star Wars Episode 7?
+	
+	[Choice: no: "question six fail"]
+	
+	PARTICIPANT
+	Hell yeah he did. [Change score: by: 10]
+	
+	[jump to: label: "question seven"]
+
+[Label: name: "question six fail"]
+	PARTICIPANT
+	What? Come on, man, it was so obvious.
+	[Change score: by: -10]
+	
+[Label: name: "question seven"]
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "look down"]
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "breathe" blocking: no]
+	
+	PARTICIPANT
+	Okay. Um. Ha ha. I feel like I should come up with at least 10 questions, but...
+	`
+	They said I could ask about *anything,* so...
+	`
+	Oh! Yeah. That's it.
+	`
+	Is it raining outside?
+	
+	[Choice: no: "question seven fail"]
+	
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "look up"]
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "look up breathe" blocking: no]
+	
+	PARTICIPANT
+	Heck yeah it is. I just barely avoided getting soaked myself...
+	[Change score: by: 10]
+	
+	[jump to: label: "question eight"]
+
+[Label: name: "question seven fail"]
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "look up"]
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "look up breathe" blocking: no]
+	
+	PARTICIPANT
+	Ah ha ha. You clearly have not been outside for the last few days. [Change score: by: -10]
+
+[Label: name: "question eight"]
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "look down"]
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "breathe" blocking: no]
+
+	PARTICIPANT
+	Okaaaaay...
+	`
+	Um. Having a good day?
+
+	[Choice: yes: "question eight fail"]
+
+	PARTICIPANT
+	Yeah, I can imagine. [Change score: by: 10]
+
+	[jump to: label: "question nine"]
+
+[Label: name: "question eight fail"]
+	PARTICIPANT
+	If you're a human, you're going to be locked in a tiny room pressing "yes" and "no" buttons for the whole day.
+	`
+	There is no way you're having a good day. [Change score: by: -10]
+
+[Label: name: "question nine"]
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "look up"]
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "look up breathe" blocking: no]
+		
+	PARTICIPANT
+	But... want to go out later?
+
+	[Choice: yes: "question nine fail"]
+
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "look down"]
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "breathe" blocking: no]
+
+	PARTICIPANT
+	Yeah, sounds about right.
+	[Change score: by: 10]
+
+	[jump to: label: "question 10"]
+
+[Label: name: "question nine fail"]
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "look down"]
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "breathe" blocking: no]
+	
+	PARTICIPANT
+	That's obviously wrong.
+	`
+	No *human* has ever wanted to hang out with me. [Change score: by: -10]
+
+[Label: name: "question 10"]
+	PARTICIPANT
+	Okay. Last one.
+	`
+	I'd like to see how you react to this.
+
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "look up"]
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "look up breathe" blocking: no]
+
+	PARTICIPANT
+	\*ahem\*
+	`
+	Say something other than "yes" or "no."
+
+	[Choice: yes: "question 10 fail"]
+
+	PARTICIPANT
+	Yeah, thought so. Sorry.
+	[Change score: by: 10]
+
+	[jump to: label: "finish"]
+
+[Label: name: "question 10 fail"]
+	PARTICIPANT
+	What? That, like... doesn't even make any sense, man. [Change score: by: -10]
+
+[Label: name: "finish"]
+	[stop music]
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "look down"]
+	[Play animation: player: "../bg/inside screen/scene/animations" animation: "breathe" blocking: no]
+
+	PARTICIPANT
+	...hope that was good.
+	`
+	Onto the next person, I guess...
+
+    [Change script: file: "epilogue.sglscript"]

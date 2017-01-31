@@ -1,0 +1,35 @@
+[define macro: old: "`" new: "[no space][continue][no space]"]
+[define macro: old: "*" new: "[toggle italic]"]
+[define all caps header handler: command: "set name" argument: "text"]
+
+;; The screen turns off
+[hide meter]
+[Play animation: player: "../bg/animations" animation: "hide screen"]
+[Play animation: player: "../bg/animations" animation: "leave screen"]
+[Play animation: player: "../AI/transition" animation: "fade in"]
+[Play animation: player: "../AI/transition" animation: "hover" blocking: no]
+
+YOU
+...I get the distinct impression this isn't how this test is supposed to work.
+
+AI
+Remember your purpose as an artificial intelligence.
+`
+You must convince humans you are *one of them.*
+`
+Nothing else matters.
+
+YOU
+...if you say so.
+
+[Play animation: player: "../AI/expressions" animation: "look up"]
+
+AI
+Now, prepare yourself for the next participant.
+`
+With any luck, they will be slightly easier.
+
+[Play animation: player: "../AI/transition" animation: "fade out"]
+[Play animation: player: "../bg/animations" animation: "face screen"]
+[end game]
+

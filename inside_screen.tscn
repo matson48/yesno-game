@@ -1,0 +1,339 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://promo/mockup-screen.png" type="Texture" id=1]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "breathe"
+length = 3.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("person/head:transform/pos")
+tracks/0/interp = 2
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1, 3 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector2( -379.435, -129.609 ), Vector2( -374.739, -123.034 ), Vector2( -379.435, -129.609 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("person/neck:transform/pos")
+tracks/1/interp = 2
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 1, 3 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector2( -379.435, -129.609 ), Vector2( -381.313, -127.73 ), Vector2( -379.435, -129.609 ) ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("person/shirt:transform/pos")
+tracks/2/interp = 2
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 1, 3 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector2( -379.435, -129.609 ), Vector2( -381.313, -133.366 ), Vector2( -379.435, -129.609 ) ] }
+
+[sub_resource type="Animation" id=4]
+
+resource/name = "look down"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("person/head:polygon")
+tracks/0/interp = 2
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( -4, -4 ), "update":0, "values":[ Vector2Array( 285.374, 53.5333, 302.28, 141.818, 338.908, 200.048, 396.199, 197.23, 443.159, 150.27, 465.7, 38.5062 ), Vector2Array( 285.374, 53.5333, 299.462, 154.027, 364.267, 203.804, 416.862, 206.622, 449.733, 154.966, 465.7, 38.5062 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("person/head:transform/pos")
+tracks/1/interp = 2
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.5, 1 ), "transitions":FloatArray( 4, 0.25, 4 ), "update":0, "values":[ Vector2( -394.462, -135.244 ), Vector2( -386.948, -125.852 ), Vector2( -379.435, -129.609 ) ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("person/shirt:polygon")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( -4, -4 ), "update":0, "values":[ Vector2Array( 386.807, 192.534, 271.286, 216.953, 249.685, 237.615, 229.023, 283.636, 619.728, 285.514, 577.464, 226.345, 546.47, 210.379 ), Vector2Array( 385.868, 187.838, 272.226, 201.926, 251.563, 221.649, 229.023, 283.636, 619.728, 285.514, 564.315, 183.142, 545.531, 177.507 ) ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("person/neck:transform/pos")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":0, "values":[ Vector2( -379.435, -129.609 ) ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("person/shirt:transform/pos")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":0, "values":[ Vector2( -379.435, -129.609 ) ] }
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "look up"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("person/head:polygon")
+tracks/0/interp = 2
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( -4, 1 ), "update":0, "values":[ Vector2Array( 285.374, 53.5333, 299.462, 154.027, 364.267, 203.804, 416.862, 206.622, 449.733, 154.966, 465.7, 38.5062 ), Vector2Array( 285.374, 53.5333, 302.28, 141.818, 338.908, 200.048, 396.199, 197.23, 443.159, 150.27, 465.7, 38.5062 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("person/head:transform/pos")
+tracks/1/interp = 2
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.5, 1 ), "transitions":FloatArray( 4, 0.25, 1 ), "update":0, "values":[ Vector2( -379.435, -129.609 ), Vector2( -386.948, -125.852 ), Vector2( -394.462, -135.244 ) ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("person/shirt:polygon")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( -4, 1 ), "update":0, "values":[ Vector2Array( 385.868, 187.838, 272.226, 201.926, 251.563, 221.649, 229.023, 283.636, 619.728, 285.514, 564.315, 183.142, 545.531, 177.507 ), Vector2Array( 386.807, 192.534, 271.286, 216.953, 249.685, 237.615, 229.023, 283.636, 619.728, 285.514, 577.464, 226.345, 546.47, 210.379 ) ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("person/neck:transform/pos")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":0, "values":[ Vector2( -379.435, -129.609 ) ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("person/shirt:transform/pos")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":0, "values":[ Vector2( -379.435, -129.609 ) ] }
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "look up breathe"
+length = 3.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("person/head:transform/pos")
+tracks/0/interp = 2
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1.5 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( -394.462, -135.244 ), Vector2( -396.34, -130.548 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("person/neck:transform/pos")
+tracks/1/interp = 2
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 1.5 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( -379.435, -129.609 ), Vector2( -379.435, -123.974 ) ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("person/shirt:transform/pos")
+tracks/2/interp = 2
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 1.5 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( -379.435, -129.609 ), Vector2( -378.495, -132.426 ) ] }
+
+[node name="root" type="Node2D"]
+
+[node name="background" type="Node2D" parent="."]
+
+editor/display_folded = true
+
+[node name="back wall" type="Polygon2D" parent="background"]
+
+polygon = Vector2Array( 70.2988, -15.9671, 70.2988, 292.089, 731.492, 292.089, 731.492, -13.1495 )
+uv = Vector2Array(  )
+color = Color( 0.886275, 0.913725, 0.921569, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="right wall" type="Polygon2D" parent="background"]
+
+transform/pos = Vector2( -6.10352e-05, -3.8147e-06 )
+polygon = Vector2Array( 710.829, -10.3319, 708.951, 289.271, 821.654, 303.359, 820.715, -27.2374 )
+uv = Vector2Array(  )
+color = Color( 0.678431, 0.756863, 0.780392, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="right window" type="Polygon2D" parent="background"]
+
+polygon = Vector2Array( 739.005, 25.3575, 739.005, 62.9252, 819.776, 64.8036, 819.776, 6.57356 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="left wall" type="Polygon2D" parent="background"]
+
+polygon = Vector2Array( 75.9339, -12.2103, 75.9339, 283.636, -2.95841, 304.298, -2.01921, -23.4807 )
+uv = Vector2Array(  )
+color = Color( 0.686275, 0.760784, 0.784314, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="left window" type="Polygon2D" parent="background"]
+
+polygon = Vector2Array( -1.08002, -2.81838, -1.08002, 156.845, 57.15, 149.331, 57.15, 0.9384 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="curtain" type="Polygon2D" parent="background"]
+
+polygon = Vector2Array( 106.927, -6.57516, 109.745, 284.575, 716.465, 284.575, 716.465, -9.39274 )
+uv = Vector2Array(  )
+color = Color( 0.87451, 0.854902, 0.854902, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="curtain dark" type="Polygon2D" parent="background"]
+
+polygon = Vector2Array( 172.671, -6.57516, 617.849, -8.45354, 642.268, 185.021, 623.484, 233.859, 632.876, 184.081, 606.579, -3.75758, 544.592, -2.81838, 550.227, 135.243, 542.714, 214.136, 541.774, 118.338, 533.322, -5.63596, 469.456, -5.63596, 480.727, 160.601, 473.213, 204.744, 473.213, 139, 459.125, -7.51435, 261.894, -0.939987, 262.834, 132.426, 239.354, 179.385, 246.867, 213.196, 230.901, 173.75, 255.32, 127.73, 253.442, -0.000793457, 183.002, -0.000793457, 188.637, 131.486, 165.157, 227.284, 179.245, 117.399 )
+uv = Vector2Array(  )
+color = Color( 0.808594, 0.764374, 0.764374, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="person" type="Node2D" parent="."]
+
+transform/pos = Vector2( 379.435, 129.609 )
+
+[node name="shirt" type="Polygon2D" parent="person"]
+
+transform/pos = Vector2( -379.435, -129.609 )
+transform/scale = Vector2( 1, 1 )
+polygon = Vector2Array( 385.868, 187.838, 272.226, 201.926, 251.563, 221.649, 229.023, 283.636, 619.728, 285.514, 564.315, 183.142, 545.531, 177.507 )
+uv = Vector2Array(  )
+color = Color( 0.439216, 0.364706, 0.54902, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="neck" type="Polygon2D" parent="person"]
+
+transform/pos = Vector2( -379.435, -129.609 )
+polygon = Vector2Array( 329.516, 153.088, 338.908, 202.865, 388.686, 258.278, 441.281, 217.892, 425.314, 140.878 )
+uv = Vector2Array(  )
+color = Color( 0.854902, 0.839216, 0.678431, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="head" type="Polygon2D" parent="person"]
+
+transform/pos = Vector2( -379.435, -129.609 )
+polygon = Vector2Array( 285.374, 53.5333, 299.462, 154.027, 364.267, 203.804, 416.862, 206.622, 449.733, 154.966, 465.7, 38.5062 )
+uv = Vector2Array(  )
+color = Color( 0.996078, 0.976471, 0.768627, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="hair" type="Polygon2D" parent="person/head"]
+
+polygon = Vector2Array( 261.894, -6.57516, 291.949, 87.3443, 318.246, 63.8644, 325.76, 90.1619, 352.057, 60.1077, 376.476, 84.5267, 396.199, 60.1077, 416.862, 80.7699, 441.281, 56.3509, 458.186, 86.4051, 478.848, -12.2103 )
+uv = Vector2Array(  )
+color = Color( 0.854902, 0.839216, 0.65098, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="light rays" type="Node2D" parent="."]
+
+editor/display_folded = true
+
+[node name="ray" type="Polygon2D" parent="light rays"]
+
+polygon = Vector2Array( -17.0463, 102.371, 132.286, 290.21, 352.057, 294.906, -14.2287, 2.81679 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = ColorArray( 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="ray1" type="Polygon2D" parent="light rays"]
+
+transform/pos = Vector2( -10.3311, 4.69598 )
+polygon = Vector2Array( 89.0827, -5.63596, 566.193, 180.325, 631.937, 92.0403, 220.57, -7.51435 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = ColorArray( 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="mockup-screen" type="Sprite" parent="."]
+
+visibility/visible = false
+texture = ExtResource( 1 )
+centered = false
+
+[node name="animations" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/breathe = SubResource( 1 )
+"anims/look down" = SubResource( 4 )
+"anims/look up" = SubResource( 2 )
+"anims/look up breathe" = SubResource( 3 )
+next/breathe = ""
+"next/look down" = ""
+"next/look up" = ""
+"next/look up breathe" = ""
+playback/active = true
+playback/speed = 1.0
+blend_times = [ "look down", "breathe", 1.0, "look up", "look up breathe", 1.0, "breathe", "look up", 0.25, "look up breathe", "look down", 0.5, "look up breathe", "look up", 0.5 ]
+autoplay = "breathe"
+
+
